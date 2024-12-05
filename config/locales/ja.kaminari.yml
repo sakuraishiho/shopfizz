@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      # Add your models here if needed
+  kaminari:
+    Previous: "前の"
+    Next: "次の"
+    First: "最初の"
+    Last: "最後の"
+    showing: "表示中"
+    of: "の"
+    page: "ページ"
+    pages: "ページ"
+    # その他必要な翻訳を追加
+    

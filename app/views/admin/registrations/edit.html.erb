@@ -1,0 +1,43 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "admin/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %> <i>(変更したくない場合は空欄のままにしてください)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %>文字以上が必要です</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "パスワード確認" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, "現在のパスワード" %> <i>(変更を確認するために現在のパスワードが必要です)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新", class: "inline-flex items-center justify-center rounded-md bg-indigo-500 p-3 text-white duration-100 ease-in-out hover:bg-indigo-600 focus:outline-none cursor-pointer" %>
+  </div>
+<% end %>
+
+<h3>アカウントをキャンセル</h3>
+
+<div>お悩みですか？ <%= button_to "アカウントをキャンセル", registration_path(resource_name), data: { confirm: "本当にキャンセルしますか？", turbo_confirm: "本当にキャンセルしますか？" }, method: :delete, class: "text-red-600 underline" %></div>
+
+<%= link_to "戻る", :back, class: "text-blue-500 underline" %>

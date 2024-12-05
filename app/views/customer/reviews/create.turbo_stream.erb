@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "review_form" do %>
+    <%= render "customer/reviews/form", review: @review, product: @product %>
+<% end %>
+  
+<% if @review.persisted? %>
+  <%= turbo_stream.append "reviews_list" do %>
+    <%= render "customer/reviews/review", review: @review %>
+  <% end %>
+<% end %>

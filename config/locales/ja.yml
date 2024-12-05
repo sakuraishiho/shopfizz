@@ -1,0 +1,67 @@
+ja:
+  time:
+    formats:
+      short: "%Y年%m月%d日 %H:%M"
+      long: "%Y年%m月%d日 %H時%M分%S秒"
+  date:
+    formats:
+      default: "%Y年%m月%d日"
+      short: "%Y年%m月%d日"
+      long: "%Y年%m月%d日 (%A)"
+
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            name:
+              blank: "名前を入力してください。"
+            email:
+              blank: "メールアドレスを入力してください。"
+              invalid: "有効なメールアドレスを入力してください。"
+              taken: "このメールアドレスはすでに登録されています。"
+            password:
+              blank: "パスワードを入力してください。"
+              too_short: "パスワードは最低 %{count} 文字以上にしてください。"
+            password_confirmation:
+              confirmation: "パスワード確認が一致しません。"
+            current_password:
+              blank: "現在のパスワードを入力してください。"
+        product:
+          attributes:
+            name:
+              blank: "商品名を入力してください。"
+            description:
+              blank: "詳細を入力してください。"
+            price:
+              blank: "金額を入力してください"
+              not_a_number: "金額には数値を入力してください。"
+            stock:
+              blank: "在庫数を入力してください。"
+              not_a_number: "在庫数には数値を入力してください。"
+            image:
+              blank: "画像ファイルを選択してください。"
+        review:
+          attributes:
+            score:
+              blank: "点数を入力してください。"
+            content:
+              blank: "内容を入力してください。"
+      messages:
+        not_saved: "%{count} 件のエラーが保存を妨げました。"
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        
+  activemodel:
+    errors:
+      models:
+        contact_form:
+          attributes:
+            subject:
+              blank: "件名を入力してください。"
+            name:
+              blank: "名前を入力してください。"
+            content:
+              blank: "問い合わせ内容を入力してください。"
+      messages:
+        not_saved: "%{count} 件のエラーが保存を妨げました。"
+        
