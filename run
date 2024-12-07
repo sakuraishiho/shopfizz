@@ -44,7 +44,7 @@ function test {
   local test_command="rails test"
 
   if [ "${run_build}" = "-b" ]; then
-    test_command="yarn build && yarn build:css && ${test_command}"
+    test_command="rails assets:precompile && ${test_command}"
   fi
 
   _dc -e "RAILS_ENV=test" js bash -c "${test_command}"
@@ -87,49 +87,6 @@ function bundle:update {
   ## Update any installed gems that are outdated
   cmd bundle update
   bundle:install
-}
-
-function yarn:install {
-  ## Install Yarn dependencies and write out a lock file
-  _build_run_down js yarn install
-}
-
-function yarn:outdated {
-  ## Install yarn dependencies and write lock file
-  _dc js yarn outdated
-}
-
-function yarn:build {
-  # Build JS assets, this is only meant to be referenced from your package.json
-  local args=()
-
-  if [ "${NODE_ENV:-}" == "production" ]; then
-    args=(--minify)
-  elif [ "${RAILS_ENV:-}" == "development" ]; then
-    args=(--sourcemap --watch)
-  fi
-
-  esbuild app/javascript/*.* --outdir=app/assets/builds --bundle "${args[@]}"
-}
-
-function yarn:build:css {
-  # Build CSS assets, this is only meant to be referenced from your package.json
-  local args=()
-
-  if [ "${NODE_ENV:-}" == "production" ]; then
-    args=(--minify)
-  elif [ "${RAILS_ENV:-}" == "development" ]; then
-    args=(--watch)
-  fi
-
-  tailwindcss --postcss \
-    -i ./app/assets/stylesheets/application.tailwind.css \
-    -o ./app/assets/builds/application.css "${args[@]}"
-}
-
-function clean {
-  ## Remove cache and other machine generates files
-  rm -rf node_modules/ app/assets/builds/* public/assets tmp/* .byebug_history
 }
 
 function ci:install-deps {
