@@ -8,13 +8,10 @@ ARG GID=1000
 
 RUN bash -c "set -o pipefail && apt-get update \
   && apt-get install -y --no-install-recommends build-essential curl git libpq-dev vim \
-  && curl -sSL https://deb.nodesource.com/setup_18.x | bash - \
-  && apt-get update && apt-get install -y --no-install-recommends nodejs \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
   && groupadd -g \"${GID}\" ruby \
-  && useradd --create-home --no-log-init -u \"${UID}\" -g \"${GID}\" ruby \
-  && mkdir /node_modules && chown ruby:ruby -R /node_modules /app"
+  && useradd --create-home --no-log-init -u \"${UID}\" -g \"${GID}\" ruby"
 
 USER ruby
 
