@@ -76,7 +76,7 @@
                             <p class="text-sm leading-5">としてログイン中</p>
                           </div>
                           <div class="py-1">
-                            <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left", method: :delete do %>
+                            <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left", turbo_method: :delete do %>
                               ログアウト
                             <% end %>
                           </div>
@@ -129,7 +129,7 @@
                             <% end %>
                           </div>
                           <div class="py-1">
-                            <%= link_to destroy_customer_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left", method: :delete do %>
+                            <%= link_to destroy_customer_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left", turbo_method: :delete do %>
                               ログアウト
                             <% end %>
                           </div>
