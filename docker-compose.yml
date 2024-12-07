@@ -110,11 +110,11 @@ services:
 
   js:
     <<: *default-assets
-    command: "yarn build"
+    # command: "yarn build"
 
   css:
     <<: *default-assets
-    command: "yarn build:css"
+    # command: "yarn build:css"
 
 volumes:
   postgres: {}
