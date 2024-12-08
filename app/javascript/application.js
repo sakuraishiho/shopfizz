@@ -1,2 +1,2 @@
-import "../assets/stylesheets/application.tailwind.css";
-import { Turbo } from "@hotwired/turbo-rails"
+//= require application
+import "@hotwired/turbo-rails"

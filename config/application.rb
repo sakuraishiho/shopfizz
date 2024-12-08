@@ -10,7 +10,7 @@ module Hello
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    config.assets.version = '1.0'
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then collect logs using journald, syslog or forward them somewhere else.
     logger           = ActiveSupport::Logger.new($stdout)
@@ -41,6 +41,9 @@ module Hello
       g.skip_routes true
       g.test_framework false
     end
+
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
 
     config.time_zone = 'Tokyo'
 

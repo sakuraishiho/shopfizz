@@ -68,8 +68,8 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Disable digesting assets with an md5 tag.
-  config.assets.digest = false
-
+  config.assets.digest = true
+  config.assets.compile = true
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 

@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Hachi+Maru+Pop&family=Palette+Mosaic&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/484e6509e8.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -76,7 +76,7 @@
                             <p class="text-sm leading-5">としてログイン中</p>
                           </div>
                           <div class="py-1">
-                            <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left", turbo_method: :delete do %>
+                            <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" do %>
                               ログアウト
                             <% end %>
                           </div>
@@ -129,7 +129,7 @@
                             <% end %>
                           </div>
                           <div class="py-1">
-                            <%= link_to destroy_customer_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left", turbo_method: :delete do %>
+                            <%= link_to destroy_customer_session_path, data: { turbo_method: :delete }, class: "text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" do %>
                               ログアウト
                             <% end %>
                           </div>
