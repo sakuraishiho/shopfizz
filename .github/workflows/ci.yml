@@ -13,16 +13,6 @@ on:
 jobs:
   test:
     runs-on: "ubuntu-22.04"
-    services:
-      postgres:
-        image: postgres:15.1-bullseye
-        ports:
-          - 5432:5432
-        env:
-          POSTGRES_USER: hello
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: shopfizz
-
     steps:
       - uses: "actions/checkout@v2"
 

@@ -41,16 +41,22 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 8000 }
+# 本番環境のURLを指定
+  config.action_mailer.default_url_options = { host: 'shopfizz-58553181878e.herokuapp.com', protocol: 'https' }
+
+  # SMTPによるメール送信設定
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     domain: 'gmail.com',
     port: 587,
-    user_name: Rails.application.credentials.dig(:gmail, :email),
-    password: Rails.application.credentials.dig(:gmail, :app_password),
-    authentication: :login
+    user_name: Rails.application.credentials.dig(:gmail, :email), # Gmailのメールアドレス
+    password: Rails.application.credentials.dig(:gmail, :app_password), # アプリパスワード
+    authentication: :login,
+    enable_starttls_auto: true
   }
+
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
