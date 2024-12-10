@@ -1,5 +1,4 @@
 x-app: &default-app
-js:
   build:
     context: "."
     target: "app"
@@ -108,6 +107,28 @@ services:
     ports:
       - "${DOCKER_CABLE_PORT_FORWARD:-127.0.0.1:28080}:28080"
     profiles: ["cable"]
+
+  js:
+    build:
+      context: "."
+      target: "assets"
+      args:
+        - "UID=${UID:-1000}"
+        - "GID=${GID:-1000}"
+        - "RAILS_ENV=${RAILS_ENV:-production}"
+        - "NODE_ENV=${NODE_ENV:-production}"
+    depends_on:
+      - "postgres"
+      - "redis"
+    env_file:
+       - ".env"
+    profiles:
+      - "assets"
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: "3s"
+    tty: true
+    volumes:
+      - ".:/app"  
 
 volumes:
   postgres: {}
