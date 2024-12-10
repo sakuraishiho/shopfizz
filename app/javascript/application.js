@@ -1,3 +1,5 @@
 // app/assets/javascripts/application.js
-//= require your_library
 //= require turbo
+//= require rails-ujs
+//= require activestorage
+//= require_tree .
