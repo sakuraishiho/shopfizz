@@ -1,4 +1,3 @@
-import "react"
-import "react-dom"
-import "turbo"
-import "stimulus"
+// app/assets/javascripts/application.js
+//= require your_library
+//= require turbo
