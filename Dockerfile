@@ -67,12 +67,6 @@ COPY --chown=ruby:ruby --from=assets /usr/local/bundle /usr/local/bundle
 COPY --chown=ruby:ruby --from=assets /app/public /public
 COPY --chown=ruby:ruby . .
 
-# `importmap` によるビルド
-RUN if [ "${RAILS_ENV}" != "development" ]; then \
-  SECRET_KEY_BASE=dummyvalue rails assets:precompile; fi  # `importmap` を使用してアセットをコンパイル
-
-ENTRYPOINT ["/app/bin/docker-entrypoint-web"]
-
 EXPOSE 8000
 
 CMD ["rails", "s"]
