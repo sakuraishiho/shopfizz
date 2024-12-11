@@ -44,10 +44,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   # Reduces boot times through caching; required in config/boot.rb
- gem "bootsnap", require: false
- gem "rubocop", require: false
- gem "rubocop-performance", require: false
- gem "rubocop-rails", require: false
+  gem "bootsnap", require: false
+  gem "rubocop", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
 end
 
 group :development do
@@ -77,3 +77,4 @@ gem 'kaminari-actionview', '1.2.2'
 gem 'kaminari-activerecord', '1.2.2'
 gem 'kaminari-core', '1.2.2'
 gem "aws-sdk-s3", require: false
+gem 'dotenv-rails'
