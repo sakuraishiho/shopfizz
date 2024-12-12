@@ -23,10 +23,12 @@ class Customer::ContactsController < ApplicationController
         redirect_to root_path # ホーム画面にリダイレクト
       rescue StandardError
         flash.now[:alert] = 'メール送信に失敗しました。再度お試しください。'
+        logger.debug "Contact save failed: #{@contact.errors.full_messages}"
         render 'customer/contacts/new', status: :unprocessable_entity
       end
     else
       flash.now[:alert] = @contact_form.errors.full_messages.to_sentence
+      logger.debug "Contact save failed: #{@contact.errors.full_messages}"
       render 'customer/contacts/new', status: :unprocessable_entity
     end
   end
