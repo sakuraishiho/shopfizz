@@ -19,17 +19,13 @@ class Customer::ContactsController < ApplicationController
         ContactMailer.admin_contact_mail(@contact_form).deliver_now
 
         # 成功時にホーム画面に遷移し、メッセージを表示
-        Rails.logger.debug(@contact.errors.full_messages)
         flash[:notice] = 'メールの送信に成功しました。'
         redirect_to root_path # ホーム画面にリダイレクト
       rescue StandardError
-        Rails.logger.debug(@contact.errors.full_messages)
-        Rails.logger.debug "Creating contact with params: #{contact_params.inspect}"
         flash.now[:alert] = 'メール送信に失敗しました。再度お試しください。'
         render 'customer/contacts/new', status: :unprocessable_entity
       end
     else
-      Rails.logger.debug "Creating contact with params: #{contact_params.inspect}"
       flash.now[:alert] = @contact_form.errors.full_messages.to_sentence
       render 'customer/contacts/new', status: :unprocessable_entity
     end
