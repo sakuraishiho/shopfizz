@@ -6,7 +6,7 @@ const ratingValue = document.getElementById("rating-value");
 // id = "rating-value-display"の要素を取得
 const ratingValueDisplay = document.getElementById("rating-value-display");
 // indexという変数を定義
-let index;
+// let index;
 
 // reveiwの投稿ページに遷移するとstars.lengthの値（5）だけ繰り返し
 for(let i=0; i<stars.length; i++){
