@@ -12,12 +12,8 @@ class Customer::ContactsController < ApplicationController
 
     if @contact_form.valid?
       begin
-        
         # 顧客向けのメールを送信
         ContactMailer.customer_contact_mail(@contact_form, @customer).deliver_now
-        # 管理者向けのメールを送信
-        ContactMailer.admin_contact_mail(@contact_form, @customer).deliver_now
-        
         Rails.logger.debug "Validation Errors: #{@contact_form.errors.full_messages}"
         # 成功時にホーム画面に遷移し、メッセージを表示
         flash[:notice] = 'メールの送信に成功しました。'
