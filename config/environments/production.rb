@@ -59,7 +59,7 @@ Rails.application.configure do
     address: 'smtp.gmail.com',
     domain: 'herokuapp.com',
     port: 587 ,
-    email: ENV['GMAIL_EMAIL'],      # 環境変数から読み込み
+    user_name: ENV['GMAIL_EMAIL'],      # 環境変数から読み込み
     password: ENV['GMAIL_APP_PASSWORD'], # 環境変数から読み込み
     authentication: 'plain',
     enable_starttls_auto: true
