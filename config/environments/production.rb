@@ -55,15 +55,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
-    port: 587,
-    domain: 'shopfizz-ffbd074561a7.herokuapp.com'
+    port: 587 ,
+    domain: 'shopfizz-ffbd074561a7.herokuapp.com',
     user_name: 'apikey',      # SendGrid 固定値
     password: ENV['SENDGRID_API_KEY'], # 環境変数から読み込み
     authentication: 'plain',
     enable_starttls_auto: true
   }
 
-  config.action_mailer.default_url_options = { host: 'your-app.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'shopfizz-ffbd074561a7.herokuapp.com' }
   
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
