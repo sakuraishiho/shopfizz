@@ -8,11 +8,12 @@ class ContactMailer < ApplicationMailer
       subject: @contact_form.subject,   # 件名
       from: @customer.email             # 送信元
     )
+    Rails.logger.debug "テスト④: #{@contact_form}" # ログ出力
   end
 
   def admin_contact_mail(contact_form)
     @contact_form = contact_form
-    Rails.logger.debug "Admin Contact Form: #{@contact_form.inspect}" # ログ出力
+    Rails.logger.debug "Admin Contact Form: #{@contact_form}" # ログ出力
     # 管理者向けのメールを送信
     mail(
       to: 'sakura-35412@yahoo.ne.jp', # 管理者のメールアドレス
