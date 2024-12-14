@@ -8,7 +8,8 @@ class ContactMailer < ApplicationMailer
       subject: @contact_form.subject,   # 件名
       from: @customer.email             # 送信元
     )
-    Rails.logger.debug "テスト④: #{@customer}" # ログ出力
+    Rails.logger.debug "DEBUG: Customer email - #{@customer.email}"
+    Rails.logger.debug "DEBUG: Contact form subject - #{@contact_form.subject}"
   end
 
   def admin_contact_mail(contact_form)
