@@ -13,6 +13,7 @@ class ContactMailer < ApplicationMailer
 
   def admin_contact_mail(contact_form)
     @contact_form = contact_form
+    @customer = customer
     Rails.logger.debug "Admin Contact Form: #{@customer}" # ログ出力
     # 管理者向けのメールを送信
     mail(
