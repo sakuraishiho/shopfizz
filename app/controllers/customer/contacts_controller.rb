@@ -12,10 +12,10 @@ class Customer::ContactsController < ApplicationController
 
     if @contact_form.valid?
       begin
-        Rails.logger.debug "テスト①: #{@contact_form}" # ログ出力
+        Rails.logger.debug "テスト①: #{@customer}" # ログ出力
         # 顧客向けのメールを送信
         ContactMailer.customer_contact_mail(@contact_form, @customer).deliver_now
-        Rails.logger.debug "テスト②: #{@contact_form}" # ログ出力
+        Rails.logger.debug "テスト②: #{@customer}" # ログ出力
         # 管理者向けのメールを送信
         ContactMailer.admin_contact_mail(@contact_form).deliver_now
 
@@ -23,7 +23,7 @@ class Customer::ContactsController < ApplicationController
         flash[:notice] = 'メールの送信に成功しました。'
         redirect_to root_path # ホーム画面にリダイレクト
       rescue StandardError
-        Rails.logger.debug "テスト③: #{@contact_form}" # ログ出力
+        Rails.logger.debug "テスト③: #{@customer}" # ログ出力
         flash.now[:alert] = 'メール送信に失敗しました。再度お試しください。'
         render 'customer/contacts/new', status: :unprocessable_entity
       end
