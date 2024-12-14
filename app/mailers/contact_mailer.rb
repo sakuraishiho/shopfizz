@@ -14,8 +14,8 @@ class ContactMailer < ApplicationMailer
 
   def admin_contact_mail(contact_form)
     @contact_form = contact_form
-    @customer = customer
-    Rails.logger.debug "Admin Contact Form: #{@customer}" # ログ出力
+    @customer = contact_form.customer
+    Rails.logger.debug "Admin Contact Form: #{@contact_form}" 
     # 管理者向けのメールを送信
     mail(
       to: 'sakura-35412@yahoo.ne.jp', # 管理者のメールアドレス
