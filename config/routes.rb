@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       end
     end
     resources :checkouts, only: [:create]
-    resources :webhooks, only: [:create]
+    post '/webhooks/stripe', to: 'webhooks#stripe'
     resources :orders, only: %i[index show] do
       collection do
         get 'success'
@@ -45,7 +45,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  post '/webhooks/stripe', to: 'webhooks#stripe'
+  
   get '/up/', to: 'up#index', as: :up
   get '/up/databases', to: 'up#databases', as: :up_databases
   match '/500', to: 'application#render500', via: :all

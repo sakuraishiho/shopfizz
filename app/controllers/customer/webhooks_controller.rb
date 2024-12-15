@@ -1,7 +1,7 @@
 class Customer::WebhooksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  def create
+  def stripe
     payload = request.body.read
     sig_header = request.env['HTTP_STRIPE_SIGNATURE']
     endpoint_secret =  ENV['STRIPE_WEBHOOK_SECRET']
