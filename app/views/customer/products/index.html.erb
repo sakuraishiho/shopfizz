@@ -3,18 +3,8 @@
     商品一覧
   </span>
 </div>
-<div class="flex flex-wrap justify-start px-4"> <!-- 左右の余白を均一にするために px-4 を追加 -->
-  <div class="mb-3 text-md font-medium mr-2 px-4 py-1.5 rounded <%= @sort === "latest" ? "bg-gray-800 text-gray-100" : "bg-gray-100 text-gray-800" %>">
-    <%= link_to '最新', products_path(latest: true) %>
-  </div>
-  <div class="mb-3 text-md font-medium mr-2 px-4 py-1.5 rounded <%= @sort === "price_high_to_low" ? "bg-gray-800 text-gray-100" : "bg-gray-100 text-gray-800" %>">
-    <%= link_to '価格の高い順', products_path(price_high_to_low: true) %>
-  </div>
-  <div class="mb-3 text-md font-medium mr-2 px-4 py-1.5 rounded <%= @sort === "price_low_to_high" ? "bg-gray-800 text-gray-100" : "bg-gray-100 text-gray-800" %>">
-    <%= link_to '価格の低い順', products_path(price_low_to_high: true) %>
-  </div>
 </div>
-<div class='flex flex-wrap justify-start px-4'> <!-- 左揃えにして均一なパディングを追加 -->
+<div class='flex flex-wrap justify-center px-4'> <!-- 左揃えにして均一なパディングを追加 -->
   <% @products.each do |product| %>
     <div class="w-full max-w-sm rounded-lg xl:w-4/12 md:w-6/12 mb-4"> <!-- mb-4 を追加して商品間のスペースを確保 -->
       <%= link_to product_path(product) do %>
