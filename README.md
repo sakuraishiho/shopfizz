@@ -69,6 +69,25 @@ $ docker-compose build
 # 2つ目のターミナルで実行
 $ ./run rails db:setup
 
+# gemのインストール
+$ docker-compose run --rm web bash
+$ bundle install
+
+# Dockerビルドの実行
+$ docker-compose build
+
+# Dockerマイグレーションの実行
+$ docker-compose run --rm　web bash
+$ rails db:migrate
+
+# Dockerのseedを実行
+$ docker-compose run --rm　web bash
+$ rails db:migrate:seed
+
+# Dockerマイグレーションの取消し
+$ docker-compose run --rm　web bash
+$ rails db:migrate:reset
+
 # コンテナを開始
 $ docker compose up
 
@@ -121,26 +140,24 @@ gem 'kaminari-actionview', '1.2.2'
 gem 'kaminari-activerecord', '1.2.2'
 gem 'kaminari-core', '1.2.2'
 gem "aws-sdk-s3"
+gem 'dotenv-rails'
 ```
 
 ---
 
 
-# 実行手順
+# その他の設定
 
-以下の手順に従って環境をセットアップしてください。  
+ローカル環境で操作する場合、
+stripeでAPIの設定とGmailのアプリパスワードの設定が必要です。
 ↓
 
 ```bash
-# gemのインストール
-$ docker-compose run --rm web bash
-$ bundle install
+# stripe-CLIのインストール（MAC）
+$ brew install stripe/stripe-cli/stripe
 
-# Dockerビルドの実行
-$ docker-compose build
-
-# Dockerマイグレーションの実行
-$ docker-compose run --rm　web rake db:migrate
+# stripe-CLIへログイン
+$ stripe login
 ```
 
 ---
