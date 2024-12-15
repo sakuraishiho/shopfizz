@@ -4,8 +4,13 @@ class Customer::WebhooksController < ApplicationController
   def create
     payload = request.body.read
     sig_header = request.env['HTTP_STRIPE_SIGNATURE']
-    endpoint_secret = Rails.application.credentials.dig(:stripe, :endpoint_secret)
     event = nil
+    # 環境に応じて endpoint_secret を設定
+    endpoint_secret = if Rails.env.production?
+      ENV['STRIPE_WEBHOOK_SECRET'] # 本番環境はHerokuの環境変数
+    else
+      Rails.application.credentials.dig(:stripe, :endpoint_secret) # 開発環境はcredentials
+    end
 
     begin
       event = Stripe::Webhook.construct_event(
