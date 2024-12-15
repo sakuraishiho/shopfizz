@@ -23,7 +23,6 @@ class Customer::ContactsController < ApplicationController
         render 'customer/contacts/new', status: :unprocessable_entity
       end
     else
-      flash.now[:alert] = @contact_form.errors.full_messages.to_sentence
       render 'customer/contacts/new', status: :unprocessable_entity
     end
   end
