@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
     @customer = customer
     # 顧客向けのメールを送信
     mail(
-      to: @customer.email,              # 顧客への送信先
+      to: "admin@example.com",              # 顧客への送信先
       subject: @contact_form.subject,   # 件名
       from: @customer.email             # 送信元
     )
