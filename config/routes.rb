@@ -45,7 +45,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  post '/webhooks/stripe', to: 'webhooks#stripe'
   get '/up/', to: 'up#index', as: :up
   get '/up/databases', to: 'up#databases', as: :up_databases
   match '/500', to: 'application#render500', via: :all
