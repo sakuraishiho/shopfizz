@@ -9,6 +9,16 @@ Rails.application.routes.draw do
     sessions: 'customer/sessions',
     registrations: 'customer/registrations'
   }
+
+  # ルート追加（顧客用と管理者用）
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customer/sessions#guest_sign_in', as: :guest_customer_sign_in
+  end
+  
+  devise_scope :admin do
+    post 'admins/guest_sign_in', to: 'admin/sessions#guest_sign_in', as: :guest_admin_sign_in
+  end
+  
   root to: 'pages#home'
   namespace :admin do
     root to: 'pages#home'

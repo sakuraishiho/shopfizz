@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
+
+  def guest_sign_in
+    admin = Admin.find_or_create_by!(email: 'guest_admin@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in admin
+    redirect_to admin_root_path, notice: 'ゲスト管理者としてログインしました。'
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
