@@ -177,10 +177,10 @@ $ stripe login
 
 # ワイヤーフレーム
 ##### 管理者  
-<https://drive.google.com/drive/folders/1i3bN2RQ0yiN6qNnOIfIbArZjXtsNrxzc?usp=sharing>
+<https://drive.google.com/drive/folders/1vMsStZ5elE07mAko9pQzQzBNK0D-3kLx?usp=sharing>
 
 ##### 利用者    
-<https://drive.google.com/drive/folders/1EC46rW1iPL674b-tuT8Pl878OkUTNaXn?usp=sharing>
+<https://drive.google.com/drive/folders/1lX5wAQC1ZJWm1seNDji8u1uAePPu9z09?usp=sharing>
 
 ##### ログアウト中  
 <https://drive.google.com/drive/folders/1WzGMTd2No0rSUdT0LIKB13XxbunwTO0H?usp=sharing>
