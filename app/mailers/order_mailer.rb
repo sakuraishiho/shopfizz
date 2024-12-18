@@ -6,7 +6,7 @@ class OrderMailer < ApplicationMailer
   #
   def complete(args)
     email = args[:email]
-    @url = 'http://localhost:8000/orders'
+    @url = 'https://shopfizz-ffbd074561a7.herokuapp.com/orders'
     mail(to: email, subject: 'ご注文が完了しました!!')
   end
 end
